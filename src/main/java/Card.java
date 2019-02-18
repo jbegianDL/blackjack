@@ -8,7 +8,7 @@ public class Card {
     }
 
     public void printDetails(){
-        System.out.println(this.suit + " : " + this.rank);
+        System.out.println(this.rank + " of " + this.suit);
     }
 
     public String getSuit() {

@@ -5,10 +5,24 @@ public class BlackjackDemo {
 
         //Testing building of deck
         DeckGenerator generator = new DeckGenerator();
+        Player player = new Player();
         ArrayList<Card> deckOfCards = generator.makeADeckOfCards();
 
         generator.showAllCardsInDeck(deckOfCards);
-        System.out.println(deckOfCards.size());
+        System.out.println(" ");
+        System.out.println(" ");
+        player.createPlayerHand(deckOfCards);
+        System.out.println(" ");
+        player.printPlayersHand();
+        System.out.println(" ");
+        player.drawACard(deckOfCards);
+        System.out.println(" ");
+        player.printPlayersHand();
+        System.out.println(" ");
+        player.drawACard(deckOfCards);
+        System.out.println(" ");
+        player.printPlayersHand();
+
 
     }
 }

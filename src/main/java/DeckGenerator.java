@@ -1,6 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class DeckGenerator {
     private ArrayList<String> cardSuits = new ArrayList<>(Arrays.asList("Spades", "Hearts", "Clubs", "Diamonds"));
@@ -18,6 +19,7 @@ public class DeckGenerator {
                 deckOfCards.add(newCard);
             }
         }
+        Collections.shuffle(deckOfCards);
         return deckOfCards;
     }
 
