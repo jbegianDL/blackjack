@@ -4,7 +4,7 @@ public class Player {
 
         private ArrayList<Card> playersCardHand;
 
-        public void createPlayerHand(ArrayList<Card> deckOfCards){
+        public void createHand(ArrayList<Card> deckOfCards){
             playersCardHand = new ArrayList<>();
             for(int count = 0; count <= 1; count++){
                 drawACard(deckOfCards);
@@ -16,7 +16,7 @@ public class Player {
             playersCardHand.add(drawnCard);
         }
 
-        public void printPlayersHand(){
+        public void printHand(){
             for(Card card : playersCardHand){
                 card.printDetails();
             }
