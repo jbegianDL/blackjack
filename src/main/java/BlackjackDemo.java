@@ -11,7 +11,9 @@ public class BlackjackDemo {
         Dealer dealer = new Dealer();
         ArrayList<Card> deckOfCards = generator.makeADeckOfCards();
 
-//        generator.showAllCardsInDeck(deckOfCards);
+//        generator.showAllCardsInDeck(deckOfCards);  <--- shows all cards in deck created
+
+        welcomeMenu();
 
         player.createHand(deckOfCards);
 
@@ -23,6 +25,17 @@ public class BlackjackDemo {
         askForAnotherCard(deckOfCards, player, scanner);
 
 
+    }
+
+    public static void welcomeMenu(){
+        System.out.println("\n\n-------Welcome to Detroit Labs Casino-------\n _     _            _    _            _    \n" +
+                "| |   | |          | |  (_)          | |   \n" +
+                "| |__ | | __ _  ___| | ___  __ _  ___| | __\n" +
+                "| '_ \\| |/ _` |/ __| |/ / |/ _` |/ __| |/ /\n" +
+                "| |_) | | (_| | (__|   <| | (_| | (__|   < \n" +
+                "|_.__/|_|\\__,_|\\___|_|\\_\\ |\\__,_|\\___|_|\\_\\\n" +
+                "                       _/ |                \n" +
+                "                      |__/                 \n--------------------------------------------");
     }
 
     public static void askForAnotherCard(ArrayList<Card> deckOfCards, Player player, Scanner scanner) {
