@@ -18,9 +18,13 @@ public class Dealer extends Player {
     }
 
     @Override
-    public void printHand(){
+    public void showHand(){
         for(Card card : dealerCardHand){
             card.printDetails();
         }
+    }
+
+    public void showDealerStartCard(){
+        dealerCardHand.get(0).printDetails();
     }
 }

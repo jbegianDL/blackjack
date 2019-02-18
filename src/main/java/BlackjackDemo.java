@@ -16,25 +16,21 @@ public class BlackjackDemo {
         player.createHand(deckOfCards);
 
         System.out.println(" ");
-        player.printHand();
+        player.showHand();
         System.out.println(" ");
-        dealer.printHand();
-        System.out.println(" ");
-
-        player.drawACard(deckOfCards);
-        player.printHand();
-        System.out.println(" ");
-        dealer.drawACard(deckOfCards);
-        dealer.printHand();
+        dealer.showDealerStartCard();
         System.out.println(" ");
 
         player.drawACard(deckOfCards);
-        player.printHand();
+        player.showHand();
         System.out.println(" ");
-        dealer.drawACard(deckOfCards);
-        dealer.printHand();
+        dealer.showDealerStartCard();
+        System.out.println(" ");
 
-        System.out.println(deckOfCards.size());
+        player.drawACard(deckOfCards);
+        player.showHand();
+        System.out.println(" ");
+        dealer.showDealerStartCard();
 
 
 

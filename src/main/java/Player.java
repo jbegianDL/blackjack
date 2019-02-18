@@ -16,7 +16,7 @@ public class Player {
             playersCardHand.add(drawnCard);
         }
 
-        public void printHand(){
+        public void showHand(){
             for(Card card : playersCardHand){
                 card.printDetails();
             }
