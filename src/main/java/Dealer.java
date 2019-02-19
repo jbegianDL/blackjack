@@ -15,6 +15,8 @@ public class Dealer extends Player {
     public void drawACard(ArrayList<Card> deckOfCards){
         Card drawnCard = deckOfCards.remove(0);
         dealerCardHand.add(drawnCard);
+        System.out.println("You hand total is " + totalOFHand(dealerCardHand));
+
     }
 
     @Override

@@ -52,6 +52,7 @@ public class BlackjackDemo {
                 case "1":
                     player.drawACard(deckOfCards);
                     player.showHand();
+                   // repeat = player.checkForOver21(player.getPlayersCardHand());
                     break;
                 case "2":
                     //TODO total hand

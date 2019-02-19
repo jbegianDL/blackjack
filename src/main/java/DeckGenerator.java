@@ -15,7 +15,6 @@ public class DeckGenerator {
         for(String suit : cardSuits){
             for (String rank : cardRanks){
                 newCard = new Card(suit, rank);
-                //TODO Assign values to cards in Card Deck
                 deckOfCards.add(newCard);
             }
         }
