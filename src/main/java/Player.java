@@ -25,21 +25,22 @@ public class Player {
 
     public void checkForAce(ArrayList<Card> playersCardHand) {
         int numericValue = 0;
-        for (Card card : playersCardHand) {
-            if (card.getRank().equalsIgnoreCase("Ace")) {
+        int cardAtEndOfHand = playersCardHand.size() - 1;
+
+            if (playersCardHand.get(cardAtEndOfHand).getRank().equalsIgnoreCase("Ace")) {
                 System.out.println("Would You like this value be [1] or [11]: ");
                 String userInput = scanner.nextLine();
                 switch (userInput) {
 
                     case "1":
                         numericValue = 1;
-                        card.setNumericValue(numericValue);
+                        playersCardHand.get(cardAtEndOfHand).setNumericValue(numericValue);
                         System.out.println("You set Ace to value of 1 ");
                         break;
 
                     case "11":
                         numericValue = 11;
-                        card.setNumericValue(numericValue);
+                        playersCardHand.get(cardAtEndOfHand).setNumericValue(numericValue);
                         System.out.println("You set Ace to value of 11 ");
                         break;
 
@@ -48,7 +49,7 @@ public class Player {
                 }
             }
         }
-    }
+
 
     public int totalOFHand(ArrayList<Card> playersCardHand) {
         int sum = 0;
