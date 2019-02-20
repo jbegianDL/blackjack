@@ -30,9 +30,13 @@ public class BlackjackDemo {
 
             if (userInput == 1) {
                 keepRunning = true;
+            }else if(userInput == 2){
+                keepRunning = false;
             }
 
         } while (keepRunning);
+        System.out.println("Goodbye...\n" +
+                "Thanks for playing!!");
     }
 
     public static void welcomeMenu() {
