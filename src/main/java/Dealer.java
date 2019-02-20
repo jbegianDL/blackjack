@@ -29,7 +29,9 @@ public class Dealer extends Player {
     }
 
     public void showDealerStartCard() {
+        System.out.println("\n_____-----Dealer's Hand-----_____");
         dealerCardHand.get(0).printDetails();
+//        System.out.println("---------------------------------");
     }
 
     @Override
@@ -43,8 +45,6 @@ public class Dealer extends Player {
                 numericValue = 11;
                 dealerCardHand.get(cardAtEndOfHand).setNumericValue(numericValue);
             }
-            System.out.println("You set Ace to value of: " + numericValue);
-
         }
         return numericValue;
     }

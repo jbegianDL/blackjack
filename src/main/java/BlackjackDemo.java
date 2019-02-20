@@ -11,32 +11,31 @@ public class BlackjackDemo {
         Dealer dealer = new Dealer();
         ArrayList<Card> deckOfCards = generator.makeADeckOfCards();
         GameRules gameRules = new GameRules();
+        boolean keepRunning = false;
 
-//        generator.showAllCardsInDeck(deckOfCards);
+        do {
+            welcomeMenu();
 
-        welcomeMenu();
+            dealer.createHand(deckOfCards);
 
-        player.createHand(deckOfCards);
+            dealer.showDealerStartCard();
+            player.createHand(deckOfCards);
 
+            player.showHand();
 
-        player.showHand();
+            askForAnotherCard(deckOfCards, player, dealer, scanner, gameRules);
 
-        System.out.println("\n");
+            System.out.println("\nWould you like to play again? \n[1] for YES\n[2] for NO");
+            int userInput = scanner.nextInt();
 
-        dealer.createHand(deckOfCards);
-//        dealer.showHand();
-//        dealer.drawACard(deckOfCards);
+            if (userInput == 1) {
+                keepRunning = true;
+            }
 
-
-
-
-
-        askForAnotherCard(deckOfCards, player, dealer, scanner, gameRules);
-
-
+        } while (keepRunning);
     }
 
-    public static void welcomeMenu(){
+    public static void welcomeMenu() {
         System.out.println("\n\n-------Welcome to Detroit Labs Casino-------\n _     _            _    _            _    \n" +
                 "| |   | |          | |  (_)          | |   \n" +
                 "| |__ | | __ _  ___| | ___  __ _  ___| | __\n" +
@@ -53,19 +52,20 @@ public class BlackjackDemo {
         int totalOfDealerHand = 0;
 
         do {
-            System.out.println("Please enter a number \n" +
-                    "1 - Hit \n" +
-                    "2 - Stand\n");
+            System.out.println("\nYour hand total is currently " + player.totalOfHand(player.getPlayersCardHand()) +
+                    "\n\nPlease enter a number: \n" +
+                    "[1] to Hit \n" +
+                    "[2] to Stand\n");
 
-            String userInput = scanner.nextLine();
+            int userInput = scanner.nextInt();
 
             switch (userInput) {
-                case "1":
+                case 1:
                     player.drawACard(deckOfCards);
                     player.showHand();
                     repeat = player.checkForOver21(player.getPlayersCardHand());
                     break;
-                case "2":
+                case 2:
                     repeat = false;
                     break;
             }
@@ -75,7 +75,11 @@ public class BlackjackDemo {
 
         totalOfDealerHand = dealer.totalOfHand(dealer.getDealerCardHand());
 
-        System.out.println("Player total hand is:  " + totalOfHand + "\nDealer total hand is:  " + totalOfDealerHand);
+        System.out.println("Player total hand is:  " + totalOfHand);
+        System.out.println("\n_____-----Dealer's Hand-----_____");
+        dealer.showHand();
+        System.out.println("---------------------------------");
+        System.out.println("\nDealer total hand is:  " + totalOfDealerHand);
 
         gameRules.checkForWinner(totalOfHand, totalOfDealerHand);
     }

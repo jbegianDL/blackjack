@@ -41,7 +41,7 @@ public class Card {
 
 
     public void printDetails(){
-        System.out.println(this.rank + " of " + this.suit + " Numeric value " + this.numericValue );
+        System.out.println(this.rank + " of " + this.suit);
     }
 
     public String getSuit() {

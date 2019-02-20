@@ -7,6 +7,7 @@ public class Player {
     private ArrayList<Card> playersCardHand;
 
     public void createHand(ArrayList<Card> deckOfCards) {
+//        System.out.println("\n_____-----Player's Hand-----_____");
         playersCardHand = new ArrayList<>();
         for (int count = 0; count <= 1; count++) {
             drawACard(deckOfCards);
@@ -28,7 +29,8 @@ public class Player {
         int cardAtEndOfHand = playersCardHand.size() - 1;
 
             if (playersCardHand.get(cardAtEndOfHand).getRank().equalsIgnoreCase("Ace")) {
-                System.out.println("Would You like this value be [1] or [11]: ");
+                System.out.println("You got an Ace.\n" +
+                        "Would you like this card's value to be a [1] or [11]: ");
                 String userInput = scanner.nextLine();
                 switch (userInput) {
 
@@ -63,12 +65,12 @@ public class Player {
     public void drawACard(ArrayList<Card> deckOfCards) {
         Card drawnCard = deckOfCards.remove(0);
         playersCardHand.add(drawnCard);
-        System.out.println("You hand total is " + totalOfHand(playersCardHand));
         checkForAce(playersCardHand);
 
     }
 
     public void showHand() {
+        System.out.println("\n_____-----Player's Hand-----_____");
         for (Card card : playersCardHand) {
             card.printDetails();
         }
