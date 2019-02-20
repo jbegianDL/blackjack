@@ -15,7 +15,7 @@ public class Player {
     }
 
     public boolean checkForOver21(ArrayList<Card> playersCardHand) {
-        int playersTotalHand = totalOFHand(playersCardHand);
+        int playersTotalHand = totalOfHand(playersCardHand);
         boolean under21 = true;
         if (playersTotalHand > 21) {
             under21 = false;
@@ -24,7 +24,7 @@ public class Player {
     }
 
     public int checkForAce(ArrayList<Card> playersCardHand) {
-        int numericValue = 0;
+        int numericValue = 1;
         int cardAtEndOfHand = playersCardHand.size() - 1;
 
             if (playersCardHand.get(cardAtEndOfHand).getRank().equalsIgnoreCase("Ace")) {
@@ -52,7 +52,7 @@ public class Player {
         }
 
 
-    public int totalOFHand(ArrayList<Card> handOfCards) {
+    public int totalOfHand(ArrayList<Card> handOfCards) {
         int sum = 0;
         for (Card card : handOfCards) {
             sum += card.getNumericValue();
@@ -63,7 +63,7 @@ public class Player {
     public void drawACard(ArrayList<Card> deckOfCards) {
         Card drawnCard = deckOfCards.remove(0);
         playersCardHand.add(drawnCard);
-        System.out.println("You hand total is " + totalOFHand(playersCardHand));
+        System.out.println("You hand total is " + totalOfHand(playersCardHand));
         checkForAce(playersCardHand);
 
     }

@@ -10,46 +10,28 @@ public class BlackjackDemo {
         Player player = new Player();
         Dealer dealer = new Dealer();
         ArrayList<Card> deckOfCards = generator.makeADeckOfCards();
+        GameRules gameRules = new GameRules();
 
-        generator.showAllCardsInDeck(deckOfCards);
+//        generator.showAllCardsInDeck(deckOfCards);
 
         welcomeMenu();
 
-//        player.createHand(deckOfCards);
+        player.createHand(deckOfCards);
 
 
-//        player.showHand();
+        player.showHand();
 
         System.out.println("\n");
 
         dealer.createHand(deckOfCards);
-        dealer.showHand();
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
-        dealer.drawACard(deckOfCards);
+//        dealer.showHand();
+//        dealer.drawACard(deckOfCards);
 
 
 
 
-//        askForAnotherCard(deckOfCards, player, scanner);
+
+        askForAnotherCard(deckOfCards, player, dealer, scanner, gameRules);
 
 
     }
@@ -65,8 +47,10 @@ public class BlackjackDemo {
                 "                      |__/                 \n--------------------------------------------");
     }
 
-    public static void askForAnotherCard(ArrayList<Card> deckOfCards, Player player, Scanner scanner) {
+    public static void askForAnotherCard(ArrayList<Card> deckOfCards, Player player, Dealer dealer, Scanner scanner, GameRules gameRules) {
         boolean repeat = true;
+        int totalOfHand = 0;
+        int totalOfDealerHand = 0;
 
         do {
             System.out.println("Please enter a number \n" +
@@ -79,16 +63,21 @@ public class BlackjackDemo {
                 case "1":
                     player.drawACard(deckOfCards);
                     player.showHand();
-                   // repeat = player.checkForOver21(player.getPlayersCardHand());
+                    repeat = player.checkForOver21(player.getPlayersCardHand());
                     break;
                 case "2":
-                    //TODO total hand
                     repeat = false;
                     break;
             }
 
         } while (repeat);
+        totalOfHand = player.totalOfHand(player.getPlayersCardHand());
 
+        totalOfDealerHand = dealer.totalOfHand(dealer.getDealerCardHand());
+
+        System.out.println("Player total hand is:  " + totalOfHand + "\nDealer total hand is:  " + totalOfDealerHand);
+
+        gameRules.checkForWinner(totalOfHand, totalOfDealerHand);
     }
 }
 

@@ -25,7 +25,7 @@ public class DealerTest {
     @Before
     public void create() {
         testCard1 = new Card("Hearts", "5");
-        testCard2 = new Card("Spade", "4");
+        testCard2 = new Card("Spade", "5");
         testCard3 = new Card("Diamond", "Ace");
 
         dealerHand1.add(testCard1);

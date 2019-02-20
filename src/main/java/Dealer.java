@@ -13,10 +13,12 @@ public class Dealer extends Player {
 
     @Override
     public void drawACard(ArrayList<Card> deckOfCards) {
-        Card drawnCard = deckOfCards.remove(0);
-        dealerCardHand.add(drawnCard);
-        System.out.println("You hand total is " + totalOFHand(dealerCardHand));
-        checkForAce(dealerCardHand);
+
+        while (totalOfHand(dealerCardHand) < 17) {
+            Card drawnCard = deckOfCards.remove(0);
+            dealerCardHand.add(drawnCard);
+            checkForAce(dealerCardHand);
+        }
     }
 
     @Override
@@ -34,7 +36,7 @@ public class Dealer extends Player {
     public int checkForAce(ArrayList<Card> dealerCardHand) {
         int numericValue = 1;
         int cardAtEndOfHand = dealerCardHand.size() - 1;
-        int dealerHandPlus11 = totalOFHand(dealerCardHand) + 11;
+        int dealerHandPlus11 = totalOfHand(dealerCardHand) + 11;
 
         if (dealerCardHand.get(cardAtEndOfHand).getRank().equalsIgnoreCase("Ace")) {
             if (dealerHandPlus11 >= 17 && dealerHandPlus11 <= 21) {
@@ -45,5 +47,9 @@ public class Dealer extends Player {
 
         }
         return numericValue;
+    }
+
+    public ArrayList<Card> getDealerCardHand() {
+        return dealerCardHand;
     }
 }

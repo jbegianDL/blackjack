@@ -11,9 +11,7 @@ public class Card {
     }
 
     public int createNumericValue(String rank){
-        if (rank.equalsIgnoreCase("Ace")) {
-            numericValue = 1;
-        } else if (rank.equalsIgnoreCase("2")) {
+        if (rank.equalsIgnoreCase("2")) {
             numericValue = 2;
         } else if (rank.equalsIgnoreCase("3")) {
             numericValue = 3;
