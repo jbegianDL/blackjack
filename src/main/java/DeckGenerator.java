@@ -18,7 +18,7 @@ public class DeckGenerator {
                 deckOfCards.add(newCard);
             }
         }
-        Collections.shuffle(deckOfCards);
+//        Collections.shuffle(deckOfCards);
         return deckOfCards;
     }
 

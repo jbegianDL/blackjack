@@ -11,18 +11,45 @@ public class BlackjackDemo {
         Dealer dealer = new Dealer();
         ArrayList<Card> deckOfCards = generator.makeADeckOfCards();
 
-//        generator.showAllCardsInDeck(deckOfCards);  <--- shows all cards in deck created
+        generator.showAllCardsInDeck(deckOfCards);
 
         welcomeMenu();
 
-        player.createHand(deckOfCards);
+//        player.createHand(deckOfCards);
 
 
-        player.showHand();
+//        player.showHand();
 
         System.out.println("\n");
 
-        askForAnotherCard(deckOfCards, player, scanner);
+        dealer.createHand(deckOfCards);
+        dealer.showHand();
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+        dealer.drawACard(deckOfCards);
+
+
+
+
+//        askForAnotherCard(deckOfCards, player, scanner);
 
 
     }

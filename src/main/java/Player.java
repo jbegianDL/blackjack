@@ -23,7 +23,7 @@ public class Player {
         return under21;
     }
 
-    public void checkForAce(ArrayList<Card> playersCardHand) {
+    public int checkForAce(ArrayList<Card> playersCardHand) {
         int numericValue = 0;
         int cardAtEndOfHand = playersCardHand.size() - 1;
 
@@ -48,12 +48,13 @@ public class Player {
                         System.out.println("Your selection was wrong!");
                 }
             }
+            return numericValue;
         }
 
 
-    public int totalOFHand(ArrayList<Card> playersCardHand) {
+    public int totalOFHand(ArrayList<Card> handOfCards) {
         int sum = 0;
-        for (Card card : playersCardHand) {
+        for (Card card : handOfCards) {
             sum += card.getNumericValue();
         }
         return sum;
